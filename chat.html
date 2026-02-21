@@ -1,0 +1,81 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chatbot</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}"/>
+	</head>
+	
+	
+	<body>
+		<div class="container-fluid h-100">
+			<div class="row justify-content-center h-100">		
+				<div class="col-md-8 col-xl-6 chat">
+					<div class="card">
+						<div class="card-header msg_head">
+							<div class="d-flex bd-highlight">
+								<div class="img_cont">
+									<img src="data:image/png;base64,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" class="rounded-circle user_img">
+									<!-- <img src="https://www.prdistribution.com/spirit/uploads/pressreleases/2019/newsreleases/d83341deb75c4c4f6b113f27b1e42cd8-chatbot-florence-already-helps-thousands-of-patients-to-remember-their-medication.png" class="rounded-circle user_img"> -->
+									<span class="online_icon"></span>
+								</div>
+								<div class="user_info">
+									<span>Medical Chatbot</span>
+									<p>Ask me anything!</p>
+								</div>
+							</div>
+						</div>
+						<div id="messageFormeight" class="card-body msg_card_body">
+							
+							
+						</div>
+						<div class="card-footer">
+							<form id="messageArea" class="input-group">
+                                <input type="text" id="text" name="msg" placeholder="Type your message..." autocomplete="off" class="form-control type_msg" required/>
+								<div class="input-group-append">
+									<button type="submit" id="send" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			$(document).ready(function() {
+				$("#messageArea").on("submit", function(event) {
+					const date = new Date();
+					const hour = date.getHours();
+					const minute = date.getMinutes();
+					const str_time = hour+":"+minute;
+					var rawText = $("#text").val();
+
+					var userHtml = '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + rawText + '<span class="msg_time_send">'+ str_time + '</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>';
+					
+					$("#text").val("");
+					$("#messageFormeight").append(userHtml);
+
+					$.ajax({
+						data: {
+							msg: rawText,	
+						},
+						type: "POST",
+						url: "/get",
+					}).done(function(data) {
+						var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://cdn-icons-png.flaticon.com/512/387/387569.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + data + '<span class="msg_time">' + str_time + '</span></div></div>';
+						$("#messageFormeight").append($.parseHTML(botHtml));
+					});
+					event.preventDefault();
+				});
+			});
+		</script>
+        
+    </body>
+</html>
